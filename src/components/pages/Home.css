@@ -1,0 +1,21 @@
+/* Home.css */
+.home-container {
+    background-color: #97f9f9ff;
+    color: #333;
+    padding: 2rem;
+  }
+  
+  .home-hero-section {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .home-hero-heading {
+    margin-bottom: 1rem;
+  }
+  
+  .home-hero-text {
+    margin-bottom: 3rem;
+  }
+  

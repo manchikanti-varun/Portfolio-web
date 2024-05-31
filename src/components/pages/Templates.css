@@ -1,0 +1,22 @@
+/* Templates.css */
+.templates-container {
+    padding: 2rem;
+  }
+  
+  .template-card {
+    background-color: #c1e0f7ff;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .template-card-title {
+    color: #c59fc9ff;
+    font-weight: bold;
+  }
+  
+  .template-card-text {
+    color: #333;
+  }
+  
