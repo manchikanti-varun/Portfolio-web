@@ -1,26 +1,21 @@
-/* About.css */
-.about-container {
-  padding: 2rem;
-}
-
-.about-heading {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.about-card {
-  background-color: #c1e0f7ff;
-  border: none;
-  border-radius: 10px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.about-card-title {
-  color: #c59fc9ff;
-  font-weight: bold;
-}
-
-.about-card-text {
+.text-custom {
   color: #333;
+}
+
+.card-custom {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: box-shadow 0.3s;
+}
+
+.card-custom:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title-custom {
+  color: #007bff;
+}
+
+.card-text-custom {
+  color: #555;
 }

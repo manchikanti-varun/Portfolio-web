@@ -1,35 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './Navbar.css';
 
 const NavigationBar = ({ cartItemCount }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <Link className="navbar-brand" to="/">Logo</Link>
+        <a className="navbar-brand" href="/">Logo</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Overview</Link>
+              <a className="nav-link" href="/">Overview</a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/templates">Templates</Link>
+              <a className="nav-link" href="/templates">Templates</a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">About Us</Link>
+              <a className="nav-link" href="/about">About Us</a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/cart">Cart ({cartItemCount})</Link>
+              <a className="nav-link" href="/cart">Cart ({cartItemCount})</a>
             </li>
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/signin">Sign In</Link>
+              <a className="nav-link" href="/signin">Sign In</a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/login">Log In</Link>
+              <a className="nav-link" href="/signup">Sign Up</a>
             </li>
           </ul>
         </div>

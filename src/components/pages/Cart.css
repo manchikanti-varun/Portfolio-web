@@ -1,42 +1,21 @@
-/* Cart.css */
-.cart-container {
-    padding: 2rem;
-  }
-  
-  .cart-heading {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .cart-item {
-    background-color: #f0f0f0;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .btn-remove {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btn-remove:hover {
-    background-color: #c82333;
-  }
-  
-  .btn-checkout {
-    margin-top: 20px;
-  }
-  
-  .payment-section {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .btn-proceed {
-    margin-top: 10px;
-  }
-  
+.resume-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resume-form .form-label {
+  font-weight: 600;
+}
+
+.resume-form .form-control {
+  margin-bottom: 10px;
+}
+
+.resume-form .btn {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+}

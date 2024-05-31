@@ -1,21 +1,50 @@
-/* Home.css */
-.home-container {
-    background-color: #97f9f9ff;
-    color: #333;
-    padding: 2rem;
-  }
-  
-  .home-hero-section {
-    text-align: center;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-  
-  .home-hero-heading {
-    margin-bottom: 1rem;
-  }
-  
-  .home-hero-text {
-    margin-bottom: 3rem;
-  }
-  
+.container {
+  margin-top: 20px;
+}
+
+.home-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.home-subtitle {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.features {
+  margin-bottom: 50px;
+}
+
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.features ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+.features li {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.features li:before {
+  content: '\2022';
+  color: #6c0e23ff; /* Chocolate Cosmos */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  position: absolute;
+  left: -1em; /* Adjusted the position for better alignment */
+}
+
+.btn-lg {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+}

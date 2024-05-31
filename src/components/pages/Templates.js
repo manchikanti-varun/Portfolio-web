@@ -1,91 +1,107 @@
-// Templates.js
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
-import { templatesData } from '../data';
-
 import './Templates.css';
 
 const Templates = ({ cartItems, addToCart, removeFromCart }) => {
-  const [sortBy, setSortBy] = useState('');
-  const [filteredTemplates, setFilteredTemplates] = useState([...templatesData]);
+  const templates = [
+    { id: 1, name: 'Template 1', price: 100, rating: 4.5 },
+    { id: 2, name: 'Template 2', price: 150, rating: 3.8 },
+    { id: 3, name: 'Template 3', price: 200, rating: 4.9 },
+    { id: 4, name: 'Template 4', price: 180, rating: 4.2 },
+    { id: 5, name: 'Template 5', price: 120, rating: 4.0 },
+    { id: 6, name: 'Template 6', price: 180, rating: 3.6 },
+    { id: 7, name: 'Template 7', price: 250, rating: 4.8 },
+    { id: 8, name: 'Template 8', price: 300, rating: 4.3 },
+    { id: 9, name: 'Template 9', price: 250, rating: 3.9 },
+    { id: 10, name: 'Template 10', price: 220, rating: 4.7 },
+    { id: 11, name: 'Template 11', price: 350, rating: 4.6 },
+    { id: 12, name: 'Template 12', price: 450, rating: 4.2 },
+    { id: 13, name: 'Template 13', price: 400, rating: 4.1 },
+    { id: 14, name: 'Template 14', price: 130, rating: 3.7 },
+    { id: 15, name: 'Template 15', price: 180, rating: 4.5 },
+    { id: 16, name: 'Template 16', price: 200, rating: 4.8 },
+    { id: 17, name: 'Template 17', price: 300, rating: 3.9 },
+    { id: 18, name: 'Template 18', price: 250, rating: 4.3 },
+    { id: 19, name: 'Template 19', price: 280, rating: 4.7 },
+    { id: 20, name: 'Template 20', price: 380, rating: 4.2 },
+    { id: 21, name: 'Template 21', price: 400, rating: 4.9 },
+    { id: 22, name: 'Template 22', price: 450, rating: 4.6 },
+    { id: 23, name: 'Template 23', price: 480, rating: 4.3 },
+    { id: 24, name: 'Template 24', price: 500, rating: 4.8 },
+    { id: 25, name: 'Template 25', price: 200, rating: 4.4 }
+  ];
 
-  const handleSortChange = (e) => {
-    const sortOption = e.target.value;
-    setSortBy(sortOption);
-    filterTemplates(sortOption);
-  };
+  const [filter, setFilter] = useState('');
+  const [sort, setSort] = useState('');
 
-  const filterTemplates = (sortOption) => {
-    let sortedTemplates = [...templatesData];
-    switch (sortOption) {
-      case 'priceAsc':
-        sortedTemplates.sort((a, b) => a.price - b.price);
-        break;
-      case 'priceDesc':
-        sortedTemplates.sort((a, b) => b.price - a.price);
-        break;
-      case 'ratingAsc':
-        sortedTemplates.sort((a, b) => a.rating - b.rating);
-        break;
-      case 'ratingDesc':
-        sortedTemplates.sort((a, b) => b.rating - a.rating);
-        break;
+  const filteredTemplates = templates.filter(template =>
+    template.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  const sortedTemplates = filteredTemplates.sort((a, b) => {
+    switch (sort) {
+      case 'priceLowToHigh':
+        return a.price - b.price;
+      case 'priceHighToLow':
+        return b.price - a.price;
+      case 'ratingLowToHigh':
+        return a.rating - b.rating;
+      case 'ratingHighToLow':
+        return b.rating - a.rating;
       default:
-        sortedTemplates = [...templatesData];
+        return 0;
     }
-    setFilteredTemplates(sortedTemplates);
-  };
+  });
 
-  const handleClearFilter = () => {
-    setSortBy('');
-    setFilteredTemplates([...templatesData]);
-  };
-
-  const isInCart = (templateId) => {
-    return cartItems.some(item => item.id === templateId);
+  const clearFilter = () => {
+    setFilter('');
+    setSort('');
   };
 
   return (
-    <Container className="templates-container">
-      <Row>
-        <Col md={3}>
-          <h4>Filters</h4>
-          <Form>
-            <Form.Group controlId="sortBy">
-              <Form.Label>Sort By</Form.Label>
-              <Form.Control as="select" value={sortBy} onChange={handleSortChange}>
-                <option value="">Select</option>
-                <option value="priceAsc">Price (Ascending)</option>
-                <option value="priceDesc">Price (Descending)</option>
-                <option value="ratingAsc">Rating (Ascending)</option>
-                <option value="ratingDesc">Rating (Descending)</option>
-              </Form.Control>
-            </Form.Group>
-            <Button variant="secondary" onClick={handleClearFilter}>Clear Filter</Button>
-          </Form>
-        </Col>
-        <Col md={9}>
-          <Row>
-            {filteredTemplates.map(template => (
-              <Col key={template.id} md={4}>
-                <Card className="template-card">
-                  <Card.Body>
-                    <Card.Title>{template.name}</Card.Title>
-                    <Card.Text>Price: ${template.price}</Card.Text>
-                    <Card.Text>Rating: {template.rating}</Card.Text>
-                    {isInCart(template.id) ? (
-                      <Button variant="danger" onClick={() => removeFromCart(template.id)}>Remove from Cart</Button>
-                    ) : (
-                      <Button variant="primary" onClick={() => addToCart(template)}>Add to Cart</Button>
-                    )}
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+    <div className="container">
+      <h2>Templates</h2>
+      <div className="filter-sort-section">
+        <div className="form-group d-flex align-items-center">
+          <input
+            type="text"
+            placeholder="Filter by name"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="form-control me-3"
+          />
+          <select
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+            className="form-control me-3"
+          >
+            <option value="">Sort by</option>
+            <option value="priceLowToHigh">Price: Low to High</option>
+            <option value="priceHighToLow">Price: High to Low</option>
+            <option value="ratingLowToHigh">Rating: Low to High</option>
+            <option value="ratingHighToLow">Rating: High to Low</option>
+          </select>
+          <button className="btn btn-secondary btn-sm" onClick={clearFilter}>Clear Filter</button>
+        </div>
+      </div>
+      <div className="row">
+        {sortedTemplates.map(template => (
+          <div key={template.id} className="col-md-4 mb-4">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">{template.name}</h5>
+                <p className="card-text">Price: ₹{template.price}</p>
+                <p className="card-text">Rating: {template.rating}</p>
+                {cartItems.find(item => item.id === template.id) ? (
+                  <button className="btn btn-danger" onClick={() => removeFromCart(template.id)}>Remove from Cart</button>
+                ) : (
+                  <button className="btn btn-primary" onClick={() => addToCart(template)}>Add to Cart</button>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
