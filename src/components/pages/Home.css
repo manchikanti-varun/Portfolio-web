@@ -36,12 +36,12 @@
 
 .features li:before {
   content: '\2022';
-  color: #6c0e23ff; /* Chocolate Cosmos */
+  color: #6c0e23ff; 
   font-weight: bold;
   display: inline-block;
   width: 1em;
   position: absolute;
-  left: -1em; /* Adjusted the position for better alignment */
+  left: -1em; 
 }
 
 .btn-lg {
